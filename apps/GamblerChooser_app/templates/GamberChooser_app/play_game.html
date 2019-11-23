@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Gamblers Can't be Choosers</title>
+</head>
+
+<body>
+    <header class="text-center mt-4">
+        <h1>Gamblers Can't Be Choosers</h1>
+    </header>
+    <main class="container">
+        <div class="row justify-content-center my-4">
+            {% for card in community %}
+            <div class="col-2 mx-2">
+                <div class="row border mx-1">
+                    <div class="col-12 py-2">
+                        {% if card.suit == "Hearts" or card.suit == "Diamonds" %}
+                        <span class="text-danger">
+                            {% else %}
+                            <span>
+                                {% endif %}
+                                {% if card.value == 1 %}
+                                A
+                                {% elif card.value == 11 %}
+                                J
+                                {% elif card.value == 12 %}
+                                Q
+                                {% elif card.value == 13 %}
+                                K
+                                {% else %}
+                                {{ card.value }}
+                                {% endif %}
+                            </span>
+                    </div>
+                    <div class="col-12 text-center py-5">
+                        {% if card.suit == "Hearts" %}
+                        <span class="text-danger">&hearts;</span>
+                        {% elif card.suit == "Diamonds" %}
+                        <span class="text-danger">&diams;</span>
+                        {% elif card.suit == "Clubs" %}
+                        &clubs;
+                        {% elif card.suit == "Spades" %}
+                        &spades;
+                        {% endif %}
+                    </div>
+                    <div class="col-12 text-right py-2">
+                        {% if card.suit == "Hearts" or card.suit == "Diamonds" %}
+                        <span class="text-danger">
+                            {% else %}
+                            <span>
+                                {% endif %}
+                                {% if card.value == 1 %}
+                                A
+                                {% elif card.value == 11 %}
+                                J
+                                {% elif card.value == 12 %}
+                                Q
+                                {% elif card.value == 13 %}
+                                K
+                                {% else %}
+                                {{ card.value }}
+                                {% endif %}
+                            </span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <h2>{{ winner.name }} wins!</h2>
+        </div>
+        <div class="container">
+            <div class="row mb-4">
+                {% for player in players %}
+                <div class="col text-center border p-3 mx-1">
+                    <div class="row justify-content-center">
+                        <h5>{{ player.name }}</h5>
+                    </div>
+                    <div class="row px-1">
+                        <div class="col-6">
+                            <div style="width: 75px;" class="row rounded-lg border ml-auto">
+                                <div class="col-12 px-2 py-1 text-left">
+                                    {% if player.hand.0.suit == "Hearts" or player.hand.0.suit == "Diamonds" %}
+                                    <span class="text-danger">
+                                        {% else %}
+                                        <span>
+                                            {% endif %}
+                                            {% if player.hand.0.value == 1 %}
+                                            A
+                                            {% elif player.hand.0.value == 11 %}
+                                            J
+                                            {% elif player.hand.0.value == 12 %}
+                                            Q
+                                            {% elif player.hand.0.value == 13 %}
+                                            K
+                                            {% else %}
+                                            {{ player.hand.0.value }}
+                                            {% endif %}
+                                        </span>
+                                </div>
+                                <div class="col-12 text-center py-1">
+                                    {% if player.hand.0.suit == "Hearts" %}
+                                    <span class="text-danger">&hearts;</span>
+                                    {% elif player.hand.0.suit == "Diamonds" %}
+                                    <span class="text-danger">&diams;</span>
+                                    {% elif player.hand.0.suit == "Clubs" %}
+                                    &clubs;
+                                    {% elif player.hand.0.suit == "Spades" %}
+                                    &spades;
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 text-right px-2 py-1">
+                                    {% if player.hand.0.suit == "Hearts" or player.hand.0.suit == "Diamonds" %}
+                                    <span class="text-danger">
+                                        {% else %}
+                                        <span>
+                                            {% endif %}
+                                            {% if player.hand.0.value == 1 %}
+                                            A
+                                            {% elif player.hand.0.value == 11 %}
+                                            J
+                                            {% elif player.hand.0.value == 12 %}
+                                            Q
+                                            {% elif player.hand.0.value == 13 %}
+                                            K
+                                            {% else %}
+                                            {{ player.hand.0.value }}
+                                            {% endif %}
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="width: 75px;" class="row rounded-lg border mr-auto">
+                                <div class="col-12 px-2 py-1 text-left">
+                                    {% if player.hand.1.suit == "Hearts" or player.hand.1.suit == "Diamonds" %}
+                                    <span class="text-danger">
+                                        {% else %}
+                                        <span>
+                                            {% endif %}
+                                            {% if player.hand.1.value == 1 %}
+                                            A
+                                            {% elif player.hand.1.value == 11 %}
+                                            J
+                                            {% elif player.hand.1.value == 12 %}
+                                            Q
+                                            {% elif player.hand.1.value == 13 %}
+                                            K
+                                            {% else %}
+                                            {{ player.hand.1.value }}
+                                            {% endif %}
+                                        </span>
+                                </div>
+                                <div class="col-12 text-center py-1">
+                                    {% if player.hand.1.suit == "Hearts" %}
+                                    <span class="text-danger">&hearts;</span>
+                                    {% elif player.hand.1.suit == "Diamonds" %}
+                                    <span class="text-danger">&diams;</span>
+                                    {% elif player.hand.1.suit == "Clubs" %}
+                                    &clubs;
+                                    {% elif player.hand.1.suit == "Spades" %}
+                                    &spades;
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 text-right px-2 py-1">
+                                    {% if player.hand.1.suit == "Hearts" or player.hand.1.suit == "Diamonds" %}
+                                    <span class="text-danger">
+                                        {% else %}
+                                        <span>
+                                            {% endif %}
+                                            {% if player.hand.1.value == 1 %}
+                                            A
+                                            {% elif player.hand.1.value == 11 %}
+                                            J
+                                            {% elif player.hand.1.value == 12 %}
+                                            Q
+                                            {% elif player.hand.1.value == 13 %}
+                                            K
+                                            {% else %}
+                                            {{ player.hand.1.value }}
+                                            {% endif %}
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        {{ player.best_hand.display }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <a href="/new_game"><button class="btn btn-secondary float-right">New Game!</button></a>
+        <a href="/play_game"><button class="btn btn-secondary float-right mr-2">Play Again!</button></a>
+    </main>
+</body>
+
+</html>
